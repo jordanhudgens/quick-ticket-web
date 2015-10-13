@@ -5,7 +5,7 @@ class TicketsController < ApplicationController
   # GET /tickets
   # GET /tickets.json
   def index
-    @tickets = Ticket.paginate(page: params[:page], per_page: 10)
+    @tickets = Ticket.where(user_id: current_user.id).paginate(page: params[:page], per_page: 10)
   end
 
   # GET /tickets/1
@@ -26,6 +26,7 @@ class TicketsController < ApplicationController
   # POST /tickets.json
   def create
     @ticket = Ticket.new(ticket_params)
+    @ticket.user = current_user
 
     respond_to do |format|
       if @ticket.save
@@ -70,6 +71,6 @@ class TicketsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def ticket_params
-      params.require(:ticket).permit(:title, :description, :hours, :mileage, :employee, :customer)
+      params.require(:ticket).permit(:title, :description, :hours, :mileage, :employee, :customer, :user_id)
     end
 end
