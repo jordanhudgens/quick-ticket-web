@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang='en'>
 <head>
   <title>Quickticket</title>
   <%= stylesheet_link_tag    'application', media: 'all' %>
@@ -8,10 +8,14 @@
 </head>
 <body>
 
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
+      <%= render 'shared/navigation' %>
 
-<%= yield %>
+      <%= render 'shared/alerts' %>
+
+      <%= yield %>
+    </div>
+  </div>
+</div>
 
 </body>
 </html>

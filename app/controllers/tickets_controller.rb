@@ -1,10 +1,11 @@
 class TicketsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_ticket, only: [:show, :edit, :update, :destroy]
 
   # GET /tickets
   # GET /tickets.json
   def index
-    @tickets = Ticket.all
+    @tickets = Ticket.paginate(page: params[:page], per_page: 10)
   end
 
   # GET /tickets/1
