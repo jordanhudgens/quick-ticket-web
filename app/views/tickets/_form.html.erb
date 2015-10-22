@@ -36,7 +36,7 @@
         <%= f.text_field :customer, class: 'form-control' %>
       </div>
       <div class="form-group">
-        <%= f.submit "Submit Ticket", class: 'btn btn-success btn-block' %>
+        <%= f.submit "Submit Ticket", class: 'btn btn-success btn-block', data: { disable_with: "Submitting Ticket..." } %>
       </div>
     <% end %>
   </div>
