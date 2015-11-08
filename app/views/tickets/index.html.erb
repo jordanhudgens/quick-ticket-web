@@ -18,7 +18,7 @@
               <td><%= ticket.hours %></td>
               <td><%= ticket.customer %></td>
               <td><%= link_to '<i class="fa fa-pencil-square-o"></i>'.html_safe, edit_ticket_path(ticket) %></td>
-              <td><%= link_to '<i class="fa fa-minus-square"></i>'.html_safe, ticket, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              <td><%= link_to '<i class="fa fa-times"></i>'.html_safe, ticket, method: :delete, data: { confirm: 'Are you sure?' } %></td>
             </tr>
           <% end %>
         </tbody>
