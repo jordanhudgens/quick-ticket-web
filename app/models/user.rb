@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :tickets
+  has_many :labor_entries
 
   after_initialize :set_defaults
 
