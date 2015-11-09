@@ -43,13 +43,25 @@ class TicketsController < ApplicationController
   # PATCH/PUT /tickets/1
   # PATCH/PUT /tickets/1.json
   def update
-    respond_to do |format|
-      if @ticket.update(ticket_params)
-        format.html { redirect_to @ticket, notice: 'Ticket was successfully updated.' }
-        format.json { render :show, status: :ok, location: @ticket }
-      else
-        format.html { render :edit }
-        format.json { render json: @ticket.errors, status: :unprocessable_entity }
+    if request.referrer.include? "super_view"
+      respond_to do |format|
+        if @ticket.update(ticket_params)
+          format.html { redirect_to pages_super_view_path, notice: 'Ticket was successfully updated.' }
+          format.json { render :show, status: :ok, location: @ticket }
+        else
+          format.html { render :edit }
+          format.json { render json: @ticket.errors, status: :unprocessable_entity }
+        end
+      end
+    else
+      respond_to do |format|
+        if @ticket.update(ticket_params)
+          format.html { redirect_to @ticket, notice: 'Ticket was successfully updated.' }
+          format.json { render :show, status: :ok, location: @ticket }
+        else
+          format.html { render :edit }
+          format.json { render json: @ticket.errors, status: :unprocessable_entity }
+        end
       end
     end
   end
@@ -72,6 +84,6 @@ class TicketsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def ticket_params
-      params.require(:ticket).permit(:title, :description, :hours, :mileage, :employee, :customer, :user_id)
+      params.require(:ticket).permit(:title, :description, :hours, :mileage, :employee, :customer, :user_id, :ticket_status)
     end
 end

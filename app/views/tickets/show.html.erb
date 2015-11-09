@@ -23,6 +23,11 @@
   <%= @ticket.customer %>
 </p>
 
+<p>
+  <strong>Status:</strong>
+  <%= @ticket.ticket_status %>
+</p>
+
 <% if @inventory_selections.count > 0 %>
   <div class="well">
     <h3>Items used for the ticket</h3>
