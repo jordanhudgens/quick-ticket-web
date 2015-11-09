@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  get 'labor_entries/new'
 
   resources :inventory_selections
+  resources :labor_entries
 
   resources :inventories
   get 'pages/all'
