@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :inventory_selections
+
   resources :inventories
   get 'pages/all'
 
