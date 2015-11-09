@@ -11,15 +11,18 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
+  <div class="control-group">
+    <%= f.label :title, class: 'control-label' %><br>
+    <%= f.text_field :title, class: 'form-control' %>
   </div>
-  <div class="field">
-    <%= f.label :qty %><br>
-    <%= f.number_field :qty %>
+  <div class="control-group">
+    <%= f.label :qty, class: 'control-label' %><br>
+    <%= f.number_field :qty, class: 'form-control' %>
   </div>
-  <div class="actions">
-    <%= f.submit %>
+  
+  <hr>
+
+  <div class="form-group">
+    <%= f.submit "Add A New Inventory Item", class: 'btn btn-success btn-block', data: { disable_with: "Adding New Item..." } %>
   </div>
 <% end %>

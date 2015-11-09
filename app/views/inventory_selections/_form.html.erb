@@ -18,7 +18,7 @@
       <div class="control-group">
         <%= f.label :inventory_id, class: 'control-label' %>
         <div class="controls">
-          <%= collection_select(:inventory_selection, :inventory_id, Inventory.all, :id, :title, {}, { :multiple => false } ) %>
+          <%= collection_select(:inventory_selection, :inventory_id, Inventory.all, :id, :title, {include_blank: true}, { :multiple => false, class: 'form-control' } ) %>
         </div>
       </div>
 
