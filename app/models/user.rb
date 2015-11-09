@@ -5,4 +5,10 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :tickets
+
+  after_initialize :set_defaults
+
+  def set_defaults
+    self.role ||= "Employee"
+  end
 end

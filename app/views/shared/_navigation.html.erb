@@ -13,6 +13,10 @@
             
             <% if current_user %>
 
+              <% if current_user.role == "Supervisor" %>
+                <li><%= link_to "Supervisor View", pages_super_view_path %></li>
+              <% end %>
+
               <li><%= link_to "New Ticket", new_ticket_path %></li>
               <li><%= link_to "All Tickets", pages_all_path %></li>
               <li><%= link_to "My Tickets", tickets_path %></li>

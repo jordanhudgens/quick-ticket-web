@@ -19,6 +19,13 @@
             <%= f.label :password_confirmation %>
             <%= f.password_field :password_confirmation, class: 'form-control' %>
           </div>
+          <div class="control-group">
+            <%= f.label :role, class: 'control-label' %>
+            <div class="controls">
+              <%= f.select(:role, options_for_select([['Employee', 'Employee'], ['Supervisor', 'Supervisor']]), { include_blank: false }, { :multiple => false, class: 'form-control' }) %>
+            </div>
+          </div>
+          <hr>
           <div class="form-group">
             <%= f.submit "Sign up", class: 'btn btn-success btn-block' %>
           </div>
