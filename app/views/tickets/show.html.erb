@@ -39,7 +39,23 @@
 
 <hr>
 
+<% if @labor_entries.count > 0 %>
+  <div class="well">
+    <h3>Other employees on this ticket</h3>
+    <% @labor_entries.each do |labor_entry| %>
+      <p><strong><%= labor_entry.user.email %></strong> Hours: <span><%= labor_entry.hours %></span> &nbsp;&nbsp; <%= link_to '<i class="fa fa-pencil-square-o"></i>'.html_safe, edit_labor_entry_path(labor_entry, ticket_id: @ticket.id) %> &nbsp; &nbsp;<%= link_to '<i class="fa fa-times"></i>'.html_safe, labor_entry, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+    <% end %>
+  </div>
+
+  <hr>
+
+<% end %>
+
+
+
 <%= link_to 'Add Item to Ticket', new_inventory_selection_path(ticket_id: @ticket.id), class: "btn btn-primary btn-block" %>
+<br>
+<%= link_to 'Add Another Employee to Ticket', new_labor_entry_path(ticket_id: @ticket.id), class: "btn btn-primary btn-block" %>
 
 <br>
 
