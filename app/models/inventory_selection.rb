@@ -5,6 +5,7 @@ class InventorySelection < ActiveRecord::Base
   validate :inventory_qty_available?
 
   after_create :update_inventory
+  after_destroy :replenish_inventory
 
   def inventory_qty_available?
     if self.qty <= Inventory.find(self.inventory_id).qty
@@ -19,4 +20,9 @@ class InventorySelection < ActiveRecord::Base
     inventory_record = Inventory.find(self.inventory_id)
     inventory_record.update!(qty: inventory_record.qty - self.qty)
   end
+
+  def replenish_inventory
+    inventory_record = Inventory.find(self.inventory_id)
+    inventory_record.update!(qty: inventory_record.qty + self.qty)
+  end 
 end
