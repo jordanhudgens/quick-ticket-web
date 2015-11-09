@@ -23,5 +23,20 @@
   <%= @ticket.customer %>
 </p>
 
+<% if @inventory_selections.count > 0 %>
+  <div class="well">
+    <h3>Items used for the ticket</h3>
+    <% @inventory_selections.each do |item| %>
+      <p><strong><%= item.inventory.title %></strong> Qty: <span><%= item.qty %></span> <%= link_to '<i class="fa fa-times"></i>'.html_safe, item, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+    <% end %>
+  </div>
+<% end %>
+
+<hr>
+
+<%= link_to 'Add Item to Ticket', new_inventory_selection_path(ticket_id: @ticket.id), class: "btn btn-primary btn-block" %>
+
+<br>
+
 <%= link_to 'Edit', edit_ticket_path(@ticket) %> |
 <%= link_to 'Back', tickets_path %>
