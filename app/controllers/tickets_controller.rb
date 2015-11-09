@@ -11,6 +11,7 @@ class TicketsController < ApplicationController
   # GET /tickets/1
   # GET /tickets/1.json
   def show
+    @inventory_selections = InventorySelection.where(ticket_id: @ticket.id)
   end
 
   # GET /tickets/new
