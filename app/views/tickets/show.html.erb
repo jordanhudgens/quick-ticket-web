@@ -32,7 +32,7 @@
   <div class="well">
     <h3>Items used for the ticket</h3>
     <% @inventory_selections.each do |item| %>
-      <p><strong><%= item.inventory.title %></strong> Qty: <span><%= item.qty %></span> <%= link_to '<i class="fa fa-times"></i>'.html_safe, item, method: :delete, data: { confirm: 'Are you sure?' } %></p>
+      <p><strong><%= item.inventory.title %></strong> Qty: <span><%= item.qty %></span>  &nbsp;&nbsp; <%= link_to '<i class="fa fa-pencil-square-o"></i>'.html_safe, edit_inventory_selection_path(item, ticket_id: @ticket.id) %> &nbsp; &nbsp; <%= link_to '<i class="fa fa-times"></i>'.html_safe, item, method: :delete, data: { confirm: 'Are you sure?' } %></p>
     <% end %>
   </div>
 <% end %>

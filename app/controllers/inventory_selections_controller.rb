@@ -18,6 +18,23 @@ class InventorySelectionsController < ApplicationController
     end
   end
 
+  def edit
+    @inventory_selection = InventorySelection.find(params[:id])
+  end
+
+  def update
+    @inventory_selection = InventorySelection.find(params[:id])
+    @inventory_selection.ticket_id = params[:ticket_id]
+
+    respond_to do |format|
+      if @inventory_selection.update(inventory_selection_params)
+        format.html { redirect_to ticket_path(@inventory_selection.ticket_id), notice: 'Inventory successfully updated.' }
+      else
+        format.html { render :edit }
+      end
+    end
+  end
+
   def destroy
     @inventory_selection = InventorySelection.find(params[:id])
     @ticket = @inventory_selection.ticket_id
