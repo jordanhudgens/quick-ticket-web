@@ -34,3 +34,9 @@
 <div class="digg_pagination">
   <%= will_paginate @tickets, :container => false %>
 </div>
+
+<hr>
+
+<div class="form-group">
+<%= link_to "New Ticket", new_ticket_path, class: 'btn btn-primary btn-block' %>
+</div>
