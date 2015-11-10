@@ -10,7 +10,7 @@
             <th>Customer</th>
             <th>Employee</th>
             <th>Status</th>
-            <th colspan="2"></th>
+            <th colspan="1"></th>
           </tr>
         </thead>
         <tbody>
@@ -22,7 +22,6 @@
               <td><%= ticket.user.email %></td>
               <td><%= ticket.ticket_status %></td>
               <td><%= link_to '<i class="fa fa-pencil-square-o"></i>'.html_safe, edit_ticket_path(ticket) %></td>
-              <td><%= link_to '<i class="fa fa-times"></i>'.html_safe, ticket, method: :delete, data: { confirm: 'Are you sure?' } %></td>
             </tr>
           <% end %>
         </tbody>
