@@ -1,6 +1,6 @@
 <%= form_for(@inventory) do |f| %>
   <% if @inventory.errors.any? %>
-    <div id="error_explanation">
+    <div id="error_explanation" class="alert alert-danger">
       <h2><%= pluralize(@inventory.errors.count, "error") %> prohibited this inventory from being saved:</h2>
 
       <ul>
@@ -19,7 +19,7 @@
     <%= f.label :qty, class: 'control-label' %><br>
     <%= f.number_field :qty, class: 'form-control' %>
   </div>
-  
+
   <hr>
 
   <div class="form-group">

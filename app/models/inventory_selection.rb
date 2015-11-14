@@ -12,7 +12,7 @@ class InventorySelection < ActiveRecord::Base
     if self.qty <= Inventory.find(self.inventory_id).qty
       true
     else
-      errors.add(:qty, "There aren't enough items in the inventory database.")
+      errors.add(:qty, ": Input quantity exceeds inventory items in stock. Enter a quantity less than " + Inventory.find(self.inventory_id).qty.to_s + " or update the inventory.")
       false
     end
   end
