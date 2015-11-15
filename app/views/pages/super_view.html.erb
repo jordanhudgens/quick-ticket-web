@@ -16,11 +16,11 @@
         <tbody>
           <% @tickets.each do |ticket| %>
             <tr>
-              <td><%= link_to ticket.title, ticket %></td>
-              <td><%= ticket.hours %></td>
-              <td><%= ticket.customer %></td>
-              <td><%= ticket.user.email %></td>
-              <td>
+              <td data-label="Title"><%= link_to ticket.title, ticket %></td>
+              <td data-label="Hours"><%= ticket.hours %></td>
+              <td data-label="Customer"><%= ticket.customer %></td>
+              <td data-label="Employee"><%= ticket.user.email %></td>
+              <td data-label="Status">
                 <%= form_for(ticket) do |f| %>
                   <%= f.select(:ticket_status, options_for_select(['Pending Approval', 'Approved'], ticket.ticket_status), { include_blank: false }, { :multiple => false, class: 'form-control', onchange: "this.form.submit();" }) %>
                 <% end %>
