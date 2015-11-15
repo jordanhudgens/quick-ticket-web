@@ -2,6 +2,8 @@ class InventorySelection < ActiveRecord::Base
   belongs_to :inventory
   belongs_to :ticket
 
+  validates_presence_of :qty, :inventory_id, :ticket_id
+
   validate :inventory_qty_available?
 
   after_create :update_inventory
