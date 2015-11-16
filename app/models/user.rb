@@ -4,8 +4,8 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_many :tickets
-  has_many :labor_entries
+  has_many :tickets, dependent: :destroy
+  has_many :labor_entries, dependent: :destroy
 
   after_initialize :set_defaults
 
