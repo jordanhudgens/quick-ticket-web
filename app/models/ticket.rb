@@ -1,8 +1,8 @@
 class Ticket < ActiveRecord::Base
   belongs_to :user
-  has_many :inventory_selections
+  has_many :inventory_selections, dependent: :destroy
   has_many :inventories, through: :inventory_selections
-  has_many :labor_entries
+  has_many :labor_entries, dependent: :destroy
 
   validates_presence_of :title, :description, :hours, :customer, :ticket_status
 
