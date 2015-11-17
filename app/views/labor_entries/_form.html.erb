@@ -5,7 +5,7 @@
     <%= form_for(@labor_entry) do |f| %>
       <% if @labor_entry.errors.any? %>
         <div id="error_explanation" class="alert alert-danger">
-          <p><%= pluralize(@labor_entry.errors.count, "error") %> prohibited this labor_entry from being saved:</p>
+          <p><%= pluralize(@labor_entry.errors.count, "error") %> prohibited this labor entry from being saved:</p>
 
           <ul>
           <% @labor_entry.errors.full_messages.each do |message| %>

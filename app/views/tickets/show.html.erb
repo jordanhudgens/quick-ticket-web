@@ -29,8 +29,8 @@
 </p>
 
 <% if @inventory_selections.count > 0 %>
-  <div class="well">
-    <h3>Items used for the ticket</h3>
+  <div class="well well-sm">
+    <p><strong>Inventory Items:</strong></p>
     <% @inventory_selections.each do |item| %>
       <p><strong><%= item.inventory.title %></strong> Qty: <span><%= item.qty %></span>  &nbsp;&nbsp; <%= link_to '<i class="fa fa-pencil-square-o"></i>'.html_safe, edit_inventory_selection_path(item, ticket_id: @ticket.id) %> &nbsp; &nbsp; <%= link_to '<i class="fa fa-times"></i>'.html_safe, item, method: :delete, data: { confirm: 'Are you sure?' } %></p>
     <% end %>
@@ -40,8 +40,8 @@
 <hr>
 
 <% if @labor_entries.count > 0 %>
-  <div class="well">
-    <h3>Other employees on this ticket</h3>
+  <div class="well well-sm">
+    <p><strong>Employees:</strong></p>
     <% @labor_entries.each do |labor_entry| %>
       <p><strong><%= labor_entry.user.email %></strong> Hours: <span><%= labor_entry.hours %></span> &nbsp;&nbsp; <%= link_to '<i class="fa fa-pencil-square-o"></i>'.html_safe, edit_labor_entry_path(labor_entry, ticket_id: @ticket.id) %> &nbsp; &nbsp;<%= link_to '<i class="fa fa-times"></i>'.html_safe, labor_entry, method: :delete, data: { confirm: 'Are you sure?' } %></p>
     <% end %>
